@@ -258,6 +258,129 @@ h1 {
   text-decoration: none;
 }
 
+.auth-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #0B132B 0%, #1D3557 100%);
+}
+
+.auth-card {
+  width: min(460px, 100%);
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.auth-card h1 {
+  color: #0B132B;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.auth-subtitle,
+.auth-hint {
+  color: #6B7280;
+  margin-bottom: 1rem;
+}
+
+.auth-form {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 0.35rem;
+  color: #0B132B;
+  font-weight: 600;
+}
+
+.auth-form input,
+.auth-form select,
+.inline-form input,
+.inline-form select {
+  padding: 0.8rem 0.95rem;
+  border: 1px solid #D1D5DB;
+  border-radius: 12px;
+  font: inherit;
+}
+
+.auth-form button,
+.inline-form button {
+  border: none;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: #D7263D;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.alert {
+  padding: 0.9rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  background: #FFF5F5;
+  color: #B91C1C;
+  border: 1px solid #FECACA;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.greeting {
+  color: #0B132B;
+  font-weight: 600;
+}
+
+.dashboard-shell {
+  padding: 2rem 0 3rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-bottom: 1.25rem;
+}
+
+.dashboard-card .metric {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #D7263D;
+  margin: 0.3rem 0;
+}
+
+.users-table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.8rem;
+  border-bottom: 1px solid #E5E7EB;
+  vertical-align: top;
+}
+
+.inline-form {
+  display: grid;
+  gap: 0.6rem;
+}
+
 @media (min-width: 768px) {
   .header-inner {
     padding: 1.3rem 0;
