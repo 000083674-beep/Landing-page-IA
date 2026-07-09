@@ -1,5 +1,5 @@
 {
-  "name": "landing-page-ia",
+  "name": "daniela/landing-page-ia",
   "description": "PHP landing page con login y dashboard para Railway.",
   "type": "project",
   "require": {
