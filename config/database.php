@@ -33,5 +33,5 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    die('No se pudo conectar a la base de datos. Configura DB_HOST, DB_NAME, DB_USER y DB_PASSWORD.');
+    die('No se pudo conectar a la base de datos: ' . $e->getMessage());
 }
