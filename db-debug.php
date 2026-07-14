@@ -25,6 +25,7 @@ if ($user) {
     echo "email=" . $user['email'] . "\n";
     echo "role=" . $user['role'] . "\n";
     echo "password_hash=" . $user['password_hash'] . "\n";
+    echo "password_verify_password123=" . (password_verify('password123', $user['password_hash']) ? '1' : '0') . "\n";
 } else {
     echo "found=0\n";
 }
