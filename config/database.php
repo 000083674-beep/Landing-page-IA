@@ -1,9 +1,25 @@
 <?php
-$host = getenv('DB_HOST') ?: 'localhost';
-$port = getenv('DB_PORT') ?: '3306';
-$dbName = getenv('DB_NAME') ?: 'landing_app';
-$dbUser = getenv('DB_USER') ?: 'root';
-$dbPassword = getenv('DB_PASSWORD') ?: '';
+$host = getenv('DB_HOST') ?: getenv('MYSQLHOST') ?: getenv('MYSQL_HOST') ?: 'localhost';
+$port = getenv('DB_PORT') ?: getenv('MYSQL_PORT') ?: '3306';
+$dbName = getenv('DB_NAME') ?: getenv('MYSQL_DATABASE') ?: getenv('MYSQLDATABASE') ?: '';
+$dbUser = getenv('DB_USER') ?: getenv('MYSQL_USER') ?: getenv('MYSQLUSER') ?: 'root';
+$dbPassword = getenv('DB_PASSWORD') ?: getenv('MYSQL_PASSWORD') ?: getenv('MYSQL_ROOT_PASSWORD') ?: '';
+
+if (!$dbName) {
+    $mysqlUrl = getenv('MYSQL_URL') ?: getenv('DATABASE_URL') ?: '';
+    if ($mysqlUrl !== '') {
+        $parts = parse_url($mysqlUrl);
+        if ($parts !== false) {
+            $dbName = ltrim($parts['path'] ?? '', '/');
+            $host = $host === 'localhost' && !empty($parts['host']) ? $parts['host'] : $host;
+            $port = $port === '3306' && !empty($parts['port']) ? $parts['port'] : $port;
+            $dbUser = $dbUser === 'root' && !empty($parts['user']) ? $parts['user'] : $dbUser;
+            $dbPassword = $dbPassword === '' && isset($parts['pass']) ? $parts['pass'] : $dbPassword;
+        }
+    }
+}
+
+$dbName = $dbName ?: 'landing_app';
 
 try {
     $pdo = new PDO(
